@@ -31,12 +31,13 @@
 
 ## API
 
-| HTTP  | Métodos do Controller | URI | Parâmetros |
-| ------------- | ------------- | ------------- | ------------- | 
-| GET  | getAllStockQuotes  | localhost:8081/stock-quotes/  | |
-| GET  | getById  | localhost:8081/stock-quotes/{id}  | |
-| POST  | addCity  | localhost:8081/stock-quotes/primeira-etapa  | |
-| POST  | addStockQuotes  | localhost:8081/stock-quotes  | |
+| HTTP  | Métodos do Controller | URI |
+| ------------- | ------------- | ------------- | 
+| GET  | getAllStockQuotes  | localhost:8081/stock-quotes/  |
+| GET  | getById  | localhost:8081/stock-quotes/{id}  |
+| POST  | addCity  | localhost:8081/stock-quotes/primeira-etapa  |
+| POST  | addStockQuotes  | localhost:8081/stock-quotes  |
+| POST  | notificar  | /localhost:8081/stock-quotes/notificar  |
 
 
 ## application.properties
