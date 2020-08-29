@@ -10,3 +10,4 @@ import java.util.List;
 public class StockManagerResponse {
     private List<StockManager> list;
 }
+

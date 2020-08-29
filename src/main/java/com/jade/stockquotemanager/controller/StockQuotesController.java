@@ -17,25 +17,38 @@ public class StockQuotesController {
     @Autowired
     private StockQuotesService service;
 
-    @Autowired
-    private StockManagerClient client;
-
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<StockQuotes> getAllStockQuotes() {
         return service.getAllStockQuotes();
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    /**
+     * POST - 1a etapa
+     */
+    @RequestMapping(path = "/primeira-etapa", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public StockQuotesDTO addPrimeiraEtapa(@RequestBody StockQuotesDTO dto) {
+        service.persistStockQuotes(dto);
+        return dto;
+    }
+
+    /**
+     * POST - 2a etapa
+     */
+    @RequestMapping(path = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public StockQuotesDTO addStockQuotes(@RequestBody StockQuotesDTO dto) {
+
+        /**
+         * testes post
+         */
+        service.postStock(dto);
+
         service.persistStockQuotes(dto);
         return dto;
     }
 
     @RequestMapping(path = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<StockQuotes> getById(@PathVariable("id") String id){
-
         Optional<StockQuotes> stock = service.getById(id);
-
         return stock;
     }
 

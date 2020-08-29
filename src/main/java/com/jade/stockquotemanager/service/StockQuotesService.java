@@ -1,6 +1,8 @@
 package com.jade.stockquotemanager.service;
 
+import com.jade.stockquotemanager.client.StockManagerClient;
 import com.jade.stockquotemanager.dto.Quotes;
+import com.jade.stockquotemanager.dto.StockManagerResponse;
 import com.jade.stockquotemanager.dto.StockQuotesDTO;
 import com.jade.stockquotemanager.model.StockQuotes;
 import com.jade.stockquotemanager.repository.StockQuotesRepository;
@@ -16,16 +18,24 @@ public class StockQuotesService {
     private final StockQuotesRepository repository;
 
     @Autowired
+    private StockManagerClient client;
+
+    @Autowired
     public StockQuotesService(StockQuotesRepository repository) {
         this.repository = repository;
     }
 
+    /**
+     * get all
+     */
     public List<StockQuotes> getAllStockQuotes() {
         return repository.findAll();
     }
 
+    /**
+     * persistir registro no banco
+     */
     public void persistStockQuotes(StockQuotesDTO dto) {
-
         String id = dto.getId();
         List<Quotes> quotes = dto.getQuotes();
 
@@ -51,7 +61,14 @@ public class StockQuotesService {
         repository.save(sq);
     }
 
+    /**
+     * get by id
+     */
     public Optional<StockQuotes> getById(String id) {
         return repository.findById(id);
+    }
+
+    public void postStock(StockQuotesDTO dto) {
+        String stocks = client.getStocks();
     }
 }
