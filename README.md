@@ -39,7 +39,7 @@
 | POST  | addStockQuotes  | localhost:8081/stock-quotes  | |
 
 
-## application.propertie
+## application.properties
   
             ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
 		spring.datasource.url=jdbc:mysql://192.168.99.100:3306/bootdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
