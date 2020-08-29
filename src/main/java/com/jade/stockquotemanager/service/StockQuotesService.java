@@ -41,7 +41,6 @@ public class StockQuotesService {
 
         StringBuilder sb = new StringBuilder();
         String pair = "";
-
         String virgula = "; ";
         for (int i = 0; i < quotes.size(); i++) {
 
@@ -68,7 +67,12 @@ public class StockQuotesService {
         return repository.findById(id);
     }
 
-    public void postStock(StockQuotesDTO dto) {
+    public boolean postStock(StockQuotesDTO dto) throws Exception {
         String stocks = client.getStocks();
+        if (!stocks.contains(dto.getId())) {
+            persistStockQuotes(dto);
+            return true;
+        }
+        return false;
     }
 }
