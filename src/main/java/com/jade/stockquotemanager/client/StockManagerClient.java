@@ -14,5 +14,5 @@ public interface StockManagerClient {
 
     @RequestMapping(method = RequestMethod.POST, value = "/notification")
     @Headers({"Content-Type:application/json"})
-    NotificationDTO notify(@RequestBody NotificationDTO dto);
+    String notify(@RequestBody NotificationDTO dto);
 }

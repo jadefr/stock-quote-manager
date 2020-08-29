@@ -88,7 +88,8 @@ public class StockQuotesService {
     /**
      * notificar no startup
      */
-    public void notifyAtStartup(NotificationDTO dto) {
-        client.notify(dto);
+    public String notificar(NotificationDTO dto) {
+        String response = client.notify(dto);
+        return response;
     }
 }
