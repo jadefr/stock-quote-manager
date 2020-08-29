@@ -1,6 +1,7 @@
 package com.jade.stockquotemanager.service;
 
 import com.jade.stockquotemanager.client.StockManagerClient;
+import com.jade.stockquotemanager.dto.NotificationDTO;
 import com.jade.stockquotemanager.dto.Quotes;
 import com.jade.stockquotemanager.dto.StockManagerResponse;
 import com.jade.stockquotemanager.dto.StockQuotesDTO;
@@ -25,12 +26,14 @@ public class StockQuotesService {
         this.repository = repository;
     }
 
+
     /**
      * get all
      */
     public List<StockQuotes> getAllStockQuotes() {
         return repository.findAll();
     }
+
 
     /**
      * persistir registro no banco
@@ -60,6 +63,7 @@ public class StockQuotesService {
         repository.save(sq);
     }
 
+
     /**
      * get by id
      */
@@ -67,6 +71,10 @@ public class StockQuotesService {
         return repository.findById(id);
     }
 
+
+    /**
+     * post - 2a etapa
+     */
     public boolean postStock(StockQuotesDTO dto) throws Exception {
         String stocks = client.getStocks();
         if (!stocks.contains(dto.getId())) {
@@ -74,5 +82,13 @@ public class StockQuotesService {
             return true;
         }
         return false;
+    }
+
+
+    /**
+     * notificar no startup
+     */
+    public void notifyAtStartup(NotificationDTO dto) {
+        client.notify(dto);
     }
 }
