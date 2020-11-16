@@ -12,7 +12,6 @@ Criou-se, ao final, uma imagem docker para a aplicação.
 ## Tech Stack
 
 * Spring Boot
-* Java 8 
 * MySQL
 * Docker
 
