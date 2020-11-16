@@ -1,5 +1,22 @@
 # stock-quote-manager
 
+Desenvolveu-se uma API REST para fazer o gerenciamento de cotação de ações.
+
+A API apresenta as operações CRUD em endpoints (ver seção _API_), permitindo, assim, que se busque, adicione, etc, ações no sistema.
+
+A busca de ações é feita através de um feign client para uma aplicação que é executada em um container docker.
+
+Criou-se, ao final, uma imagem docker para a aplicação.
+
+
+## Tech Stack
+
+* Spring Boot
+* Java 8 
+* MySQL
+* Docker
+
+
 ## Estrutura Base
       
       src
@@ -24,7 +41,7 @@
         |    |
         |    └──StockQuotesApiApplication.java
         |  
-        └── resources 
+        ├── resources 
         |     └── application.properties
         └── Dockerfile 
 
@@ -33,11 +50,11 @@
 
 | HTTP  | Métodos do Controller | URI |
 | ------------- | ------------- | ------------- | 
-| GET  | getAllStockQuotes  | localhost:8081/stock-quotes/  |
+| GET  | getAllStockQuotes  | localhost:8081/stock-quotes  |
 | GET  | getById  | localhost:8081/stock-quotes/{id}  |
 | POST  | addCity  | localhost:8081/stock-quotes/primeira-etapa  |
 | POST  | addStockQuotes  | localhost:8081/stock-quotes  |
-| POST  | notificar  | /localhost:8081/stock-quotes/notificar  |
+| POST  | notificar  | localhost:8081/stock-quotes/notificar  |
 
 
 ## application.properties
