@@ -2,7 +2,7 @@
 
 Desenvolveu-se uma API REST para fazer o gerenciamento de cotação de ações.
 
-A API apresenta as operações CRUD em endpoints (ver seção _API_), permitindo, assim, que se busque, adicione, etc, ações no sistema.
+A API apresenta operações em endpoints (ver seção _API_), permitindo, assim, que se busque, adicione, etc, ações no sistema.
 
 A busca de ações é feita através de um feign client para uma aplicação que é executada em um container docker.
 
